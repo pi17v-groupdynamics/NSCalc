@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=cyrillic');
+@import url("https://fonts.googleapis.com/css?family=Rubik+Mono+One&amp;subset=cyrillic");
+
+:root {
+  --main_color: #2f394a; /*99a2ac*/
+  --additional_color: #1e90ff; /*#e59435*/
+  --bg_color: #f1f1f1; /*#f5f7f9*/
+}
+* {
+  padding: 0; margin: 0;
+  font-size: 18pt;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+body { background: var(--bg_color); }
+main { padding: 1em; }
+.tabs { width: 100% }
+.tabs > .tab-input { display: none; }
+.tabs > div {
+    display: none;
+    padding: 3em;
+    border: 1px solid white;
+    background: white;
+}
+.tabs > label {
+    display: inline-block;
+    padding: 1em;
+    margin: 0 -5px -1px 0;
+    text-align: center;
+    font-size: 12pt;
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #696b6f;
+    background: #ededed;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
+.tabs > input:checked + label {
+    color: var(--main_color);
+    background: white;
+}
+#tab_1:checked ~ #CalculatorWrapper,
+#tab_2:checked ~ #Help { display: block; }
+#ErrorsBlock {
+  display: none;
+  margin-bottom: 3em;
+  border-bottom: 2pt solid red;
+}
+#ErrorsLog {
+  text-indent: 45px;
+  color: red;
+  font-size: 16pt;
+  font-family: 'Rubik Mono One', sans-serif;
+  cursor: default;
+}
+.spacer {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  margin: 1em 0;
+}
+select {
+  width: 95%;
+  border: none;
+  border-bottom: 2pt solid var(--bg_color);
+}
+select:focus {
+  outline: none;
+  border-bottom: 2pt solid var(--additional_color);
+}
+input[type="text"] {
+  font-size: 18pt;
+  border: none;
+  border-bottom: 2pt solid var(--bg_color);
+}
+input[type="text"]:focus { outline: none; border-bottom: 2pt solid var(--additional_color); }
+#ResultButton {
+  margin-left: 10%;
+  padding: 7pt 0;
+  background: var(--additional_color);
+  border: 2pt solid var(--additional_color);
+  width: 80%;
+  color: white;
+}
+#ResultButton:hover {
+  cursor: pointer;
+}
+#ResultButton:active { background: none; border: 2pt solid white; color: white; }
+#ResultButton:focus { outline: none; }
+.list {
+  display: grid;
+  grid-template-columns: 28% 4% 28% 40%;
+  align-items: center;
+}
+/*.list > p, .list > select, .list > a, .list > input { border: 1pt solid red; }*/
+#OtherBase { margin-top: 1em; display: none; }
+#OtherInBaseField, #OtherOutBaseField { width: 95%; }
+#ResultField {
+  font-size: 18pt;
+  font-family: 'Rubik Mono One', sans-serif;
+  color: var(--additional_color);
+}
+#Swap { transition: 0.5s; opacity: 0.5; }
+#Swap:hover { cursor: pointer; opacity: 0.75; }
+#Swap:active { opacity: 0; }
+#Help > ol > li { font-size: 14pt; }
+#Help > p {
+  margin-top: 8pt;
+  text-align: justify;
+  font-size: 14pt;
+}
+header {
+  background: url(img/header.jpg) no-repeat center;
+  height: 240px;
+}
+footer {
+  padding: 7px 0;
+  background: var(--additional_color);
+  text-align: center;
+  color: white;
+}

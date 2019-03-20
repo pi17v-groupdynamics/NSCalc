@@ -1,0 +1,100 @@
+﻿<html>
+    <head>
+        <meta charset="utf-8">
+        <title>NSCalc</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <script type="text/javascript" src="scripts.js"></script>
+    </head>
+    <body>
+        <header>
+        </header>
+        <main>
+            <div class="tabs">
+                <input class="tab-input" type="radio" name="insert" id="tab_1" checked>
+                <label for="tab_1">Калькулятор</label>
+                <input class="tab-input" type="radio" name="insert" id="tab_2">
+                <label for="tab_2">Справка</label>
+
+                <div id="CalculatorWrapper">
+
+                  <!-- При ошибке ввода необходимо: -->
+                    <div id="ErrorsBlock"> <!-- style.display:"block" -->
+                        <p id="ErrorsLog"></p> <!-- Причина ошибки -->
+                    </div>
+
+                    <div id="CalculatorBlock">
+                        <div class="up">
+                            <input type="radio" name="InputVariables" value="" id="NumRadioVariable" checked>
+                            <label for="NumRadioVariable">Работать с числами</label>
+                            <br>
+                            <input type="radio" name="InputVariables" value="" id="ExpressionRadioVariable">
+                            <label for="ExpressionRadioVariable">Работать с выражениями</label>
+                            <div class="spacer">
+                                <input type="text" name="InputField" value="" placeholder="" id="InputField">
+                                <input type="button" name="ResultButton" value="Рассчитать" id="ResultButton">
+                            </div>
+                        </div>
+                        <div class="list">
+                              <strong>Исходное основание</strong>
+                              <p> </p>
+                              <strong>Результирующее основание</strong>
+                              <strong style="margin-left: 10%">Результат</strong>
+                        </div>
+                        <div class="list">
+                            <select id="InBaseSelect" onchange="inBase();">
+                                <option value="2">2</option>
+                                <option value="8">8</option>
+                                <option value="10">10</option>
+                                <option value="16">16</option>
+                                <option value="other">Другая СС</option>
+                            </select>
+<!-- Нет кода -->           <a id="Swap" onclick="swap();" style="text-align: center; margin-right: 35%;"><img src="img/sort.png" alt="Swap" style="width: 100%;"></a>
+                            <select id="OutBaseSelect" onchange="outBase();">
+                                <option value="2">2</option>
+                                <option value="8">8</option>
+                                <option value="10">10</option>
+                                <option value="16">16</option>
+                                <option value="other">Другая СС</option>
+                            </select>
+                            <!-- Выводить результаты вычислений в это поле: -->
+                            <span id="ResultField" style="margin-left: 10%"></span>
+                        </div>
+                        <div id="OtherBase" class="list">
+                            <input type="text" name="OtherInBaseField" value="" id="OtherInBaseField" disabled>
+                            <p> </p>
+                            <input type="text" name="OtherOutBaseField" value="" id="OtherOutBaseField" disabled>
+                            <p> </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="Help">
+                  <ol>
+                      <li> Выберите один из вариантов работы калькулятора.</li>
+                      <li> Введите значение которое необходимо перевести.</li>
+                      <li> Укажите систему счисления для введенного значения.</li>
+                      <li> Укажите в какую систему счисления переводить.</li>
+                      <li> Нажмите кнопку "Рассчитать".</li>
+                  </ol>
+                  <br>
+<p>
+Калькулятор перевода чисел имеет одно поле для ввода. В это поле необходимо ввести число которое Вы хотите перевести или математическое выражение, выбрав предварительно соответствующий вариант работы.
+</p>
+<p>
+После этого следует указать в какой системе счисления число/выражение было введено. Для этого предназначен выпадающий список из традиционных систем счисления и дополнительного поля "Другая СС", по нажатию которого предоставляется возможность ввода неодходимой системы счисления в диапазоне [2 .. 36].
+</p>
+<p>
+Далее необходимо выбрать в какую систему необходимо перевести введенное значение.
+</p>
+<p>
+После нажмития кнопки "РАССЧИТАТЬ" результат будет отображен в соответствующем поле.
+</p>
+                </div>
+
+            </div>
+        </main>
+        <footer>
+            <p>All Rights Reserved 2019</p>
+        </footer>
+    </body>
+</html>
