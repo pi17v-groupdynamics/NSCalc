@@ -25,6 +25,20 @@ function outBase() {
   return false;
 }
 
-function swap() {
+$('#Swap').click(function(){
+	var temp;
+	var inp;
+	var out;
+	var condition, condition1;
+	condition=document.getElementById('InBaseSelect');
+	if(condition.value!="other") inp = condition;
+	else inp = document.getElementById('OtherInBaseField');
 
-}
+	condition1=document.getElementById('OutBaseSelect');
+	if(condition1.value!="other") out = condition1;
+	else out = document.getElementById('OtherOutBaseField');
+	
+	temp = inp.val();
+	inp.val() = out.val();
+	out.val() = temp;
+});
