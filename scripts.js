@@ -25,20 +25,17 @@ function outBase() {
   return false;
 }
 
-$('#Swap').click(function(){
-	var temp;
-	var inp;
-	var out;
-	var condition, condition1;
-	condition=document.getElementById('InBaseSelect');
-	if(condition.value!="other") inp = condition;
-	else inp = document.getElementById('OtherInBaseField');
+function Swap()
+{
+	let selectOne=document.querySelector('.InBSe');
+  	let selectTwo=document.querySelector('.OutBSe');
+ 	let valOne=selectOne.value;
+ 	selectOne.value=selectTwo.value;
+  	selectTwo.value=valOne;
 
-	condition1=document.getElementById('OutBaseSelect');
-	if(condition1.value!="other") out = condition1;
-	else out = document.getElementById('OtherOutBaseField');
-	
-	temp = inp.val();
-	inp.val() = out.val();
-	out.val() = temp;
-});
+	selectOne=document.querySelector('#OtherInBaseField');
+  	selectTwo=document.querySelector('#OtherOutBaseField');
+ 	valOne=selectOne.value;
+ 	selectOne.value=selectTwo.value;
+  	selectTwo.value=valOne;
+}
