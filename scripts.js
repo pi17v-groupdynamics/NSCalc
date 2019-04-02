@@ -25,6 +25,17 @@ function outBase() {
   return false;
 }
 
-function swap() {
+function Swap()
+{
+	let selectOne=document.querySelector('.InBSe');
+  	let selectTwo=document.querySelector('.OutBSe');
+ 	let valOne=selectOne.value;
+ 	selectOne.value=selectTwo.value;
+  	selectTwo.value=valOne;
 
+	selectOne=document.querySelector('#OtherInBaseField');
+  	selectTwo=document.querySelector('#OtherOutBaseField');
+ 	valOne=selectOne.value;
+ 	selectOne.value=selectTwo.value;
+  	selectTwo.value=valOne;
 }
