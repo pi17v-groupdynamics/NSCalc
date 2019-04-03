@@ -7,7 +7,7 @@ function inBase() {
     input.disabled=false;
     input.focus();
   }
-  else input.disabled=true;
+  else {input.disabled=true; input.value="";}
   return false;
 }
 
@@ -21,7 +21,7 @@ function outBase() {
     input.disabled=false;
     input.focus();
   }
-  else input.disabled=true;
+  else {input.disabled=true; input.value="";}
   return false;
 }
 
@@ -38,4 +38,15 @@ function Swap()
  	valOne=selectOne.value;
  	selectOne.value=selectTwo.value;
   	selectTwo.value=valOne;
+
+	if (selectOne.hasAttribute('disabled') == true && selectTwo.hasAttribute('disabled') == false)
+		{
+		selectOne.disabled = false;
+		selectTwo.disabled = true;
+		}
+	else if (selectOne.hasAttribute('disabled') == false && selectTwo.hasAttribute('disabled') == true)
+		{
+		selectOne.disabled = true;
+		selectTwo.disabled = false;
+		}
 }
