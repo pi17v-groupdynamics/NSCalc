@@ -19,8 +19,8 @@
                 <div id="CalculatorWrapper">
 
                   <!-- При ошибке ввода необходимо: -->
-                    <div id="ErrorsBlock"> <!-- style.display:"block" -->
-                        <p id="ErrorsLog"></p> <!-- Причина ошибки -->
+                    <div id="ErrorsBlock" style="display: none"> <!-- style.display:"block" -->
+                        <p id="ErrorsLog">Введено некорректное значение!</p> <!-- Причина ошибки -->
                     </div>
 
                     <div id="CalculatorBlock">
@@ -32,7 +32,7 @@
                             <label for="ExpressionRadioVariable">Работать с выражениями</label>
                             <div class="spacer">
                                 <input type="text" name="InputField" value="" placeholder="" id="InputField">
-                                <input type="button" name="ResultButton" value="Рассчитать" id="ResultButton">
+                                <input type="button" onclick="Convert();" name="ResultButton" value="Рассчитать" id="ResultButton">
                             </div>
                         </div>
                         <div class="list">
