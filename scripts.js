@@ -69,12 +69,12 @@ function Convert()
     let Stroka = document.getElementById('InputField');
     // let reg = "^(?:\d+([*+-]|/(?!0)))+\d+$";
     if ($("#NumRadioVariable").prop("checked"))
-        if (reg.test(Stroka) === false)
-            convertBase($("#InputField").val());
+        if (reg1.test(Stroka) === false)
+            convertBase(parseFloat($("#InputField").val()));
         else alert ("Введено некорректное значение");
     else
         if (reg1.test(Stroka) === false)
-            convertBase(parseFloat(eval($("#InputField").val()),$("#InBaseSelect").val()));
+            convertBase(parseFloat(eval($("#InputField").val())));
         else alert ("Введено некорректное значение");
 	//
 	// let Stroka = document.getElementById('InputField');
@@ -105,5 +105,20 @@ function convertBase(val) {
     if (typeof(val) === "number")
         $("#ResultField").text(parseFloat(String(val)).toString(base2));
     else
-        $("#ResultField").text(parseFloat(val.toString(), base1).toString(base2));
+        $("#ResultField").text(parseInt(val.toString(), base1).toString(base2));
+}
+
+function ExpressionRadio() {
+    if ($("#ExpressionRadioVariable").prop("checked",true)) {
+       $("#InputField").val("");
+       $("#InBaseSelect").val("10");
+       $("#InBaseSelect").attr("disabled","disabled");
+   }
+}
+
+function NumRadio() {
+    if ($("#NumRadioVariable").prop("checked", true)) {
+        $("#InputField").val("");
+        $("#InBaseSelect").removeAttr("disabled");
+    }
 }
