@@ -63,6 +63,7 @@ function Swap()
 
 function Convert()
 {
+    
     base1 = $("#InBaseSelect").val();
     if (base1 === "other")
         base1 = $("#OtherInBaseField").val();
