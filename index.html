@@ -19,7 +19,7 @@
                 <div id="CalculatorWrapper">
 
                   <!-- При ошибке ввода необходимо: -->
-                    <div id="ErrorsBlock" style="display: none"> <!-- style.display:"block" -->
+                    <div id="ErrorsBlock" style="display: none">
                         <p id="ErrorsLog">Введено некорректное значение!</p> <!-- Причина ошибки -->
                     </div>
 
@@ -49,7 +49,7 @@
                                 <option value="16">16</option>
                                 <option value="other">Другая СС</option>
                             </select>
-		            <a id="Swap" onclick="Swap();" style="text-align: center; margin-right: 35%;"><img src="img/sort.png" alt="Swap" style="width: 100%;"></a>
+		            <a id="Swap" onclick="Swap();" style="text-align: center; margin-right: 35%;"><img src="img/sort.png" id="Swapimg" alt="Swap" style="width: 100%;"></a>
                             <select id="OutBaseSelect" onchange="outBase();" class="OutBSe">
                                 <option value="2">2</option>
                                 <option value="8">8</option>
