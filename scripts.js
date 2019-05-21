@@ -63,9 +63,6 @@ function Swap()
 
 function Convert()
 {
-    // let reg1 = new RegExp("^(?:d+([*+-]|/(?!0)))+d+$");
-    // let reg = new RegExp("^[-+]?[0-9]*[.,]?[0-9]+(?:[eE][-+]?[0-9]+)?$");
-
     base1 = $("#InBaseSelect").val();
     if (base1 === "other")
         base1 = $("#OtherInBaseField").val();
@@ -76,16 +73,26 @@ function Convert()
 
     let Stroka = document.getElementById('InputField');
 
+    if ($("#InputField").val().indexOf(",") > -1)
+    {
+        error();
+        return;
+    }
+
     if ($("#NumRadioVariable").prop("checked"))
-        $("#ResultField").text(ConvertSys(($("#InputField").val()),base1,base2,0,false)[0]);
+        var word = $("#InputField").val();
     else
-        $("#ResultField").text(ConvertSys(eval($("#InputField").val()),base1,base2,0,false)[0]);
-	//
-	// let Stroka = document.getElementById('InputField');
-	// if (reg.test(Stroka) === false) alert ("Вы дебил");
-	// else {
-    //
-    // }
+        word = eval($("#InputField").val());
+
+    negative = false;
+    if (parseInt(word)<0)
+    {word=word*-1;
+    negative = true;
+    }
+
+    if (negative === false)
+        $("#ResultField").text(ConvertSys(word,base1,base2,0,false)[0]);
+    else $("#ResultField").text(ConvertSys(word,base1,base2,0,false)[0] * -1);
 
 }
 function is_dig(dig,base)
