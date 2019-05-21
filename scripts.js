@@ -61,9 +61,8 @@ function Swap()
 }
 
 
-function Convert()
-{
-    
+function Convert() {
+
     base1 = $("#InBaseSelect").val();
     if (base1 === "other")
         base1 = $("#OtherInBaseField").val();
@@ -74,18 +73,36 @@ function Convert()
 
     let Stroka = document.getElementById('InputField');
 
-    if ($("#InputField").val().indexOf(",") > -1)
-    {
+
+    if ($("#InputField").val().indexOf(",") > -1) {
         error();
         return;
     }
 
+    let word = $("#InputField").val();
+
+
     if ($("#NumRadioVariable").prop("checked"))
-        var word = $("#InputField").val();
+        word = $("#InputField").val();
     else
+    {
+        if (word.match(/[A-zА-я]/g).length > 0)
+        {
+            error();
+            return;
+        }
         word = eval($("#InputField").val());
 
-    negative = false;
+    }
+
+    for (let i = 0; i <= word.length; i++)
+        if (word.charAt(i) >= base1)
+        {
+            error();
+            return;
+        }
+
+    let negative = false;
     if (parseInt(word)<0)
     {word=word*-1;
     negative = true;
