@@ -77,13 +77,9 @@ function Convert()
     let Stroka = document.getElementById('InputField');
 
     if ($("#NumRadioVariable").prop("checked"))
-        if (reg1.test(Stroka) === false)
-            $("#ResultField").text(ConvertSys(($("#InputField").val()),base1,base2,0,false)[0]);
-        else alert ("Введено некорректное значение");
+        $("#ResultField").text(ConvertSys(($("#InputField").val()),base1,base2,0,false)[0]);
     else
-        if (reg1.test(Stroka) === false)
-            $("#ResultField").text(ConvertSys(eval($("#InputField").val()),base1,base2,0,false)[0]);
-        else alert ("Введено некорректное значение");
+        $("#ResultField").text(ConvertSys(eval($("#InputField").val()),base1,base2,0,false)[0]);
 	//
 	// let Stroka = document.getElementById('InputField');
 	// if (reg.test(Stroka) === false) alert ("Вы дебил");
