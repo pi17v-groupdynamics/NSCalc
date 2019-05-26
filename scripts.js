@@ -72,7 +72,7 @@ function Convert() {
         base2 = $("#OtherOutBaseField").val();
 
     if (base1 > 36 || base1 < 2 || base2 > 36 || base2 < 2)
-        error();
+    { error(); return;}
 
     let Stroka = document.getElementById('InputField');
 
@@ -89,9 +89,9 @@ function Convert() {
     {
         for (let i = 0; i <= word.length; i++)
         {
-            if (parseInt(word.charAt(i)) >= base1) {
-            error();
-            return;
+            if (parseInt(word.charAt(i),36) >= base1) {
+                error();
+                return;
         }   }
         word = $("#InputField").val();
     }
@@ -112,14 +112,6 @@ function Convert() {
     {   word=word.slice(1);
         negative = true;
     }
-
-    // for (let i = 0; i <= word.length; i++)
-    //     if (parseInt(word.charAt(i) >= base1))
-    //     {
-    //         error();
-    //         return;
-    //     }
-
 
 
     if (negative === false)
