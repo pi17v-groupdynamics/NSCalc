@@ -74,7 +74,7 @@ function Convert() {
     let Stroka = document.getElementById('InputField');
 
 
-    if ($("#InputField").val().indexOf(",") > -1) {
+    if ($("#InputField").val().indexOf(",") > -1 | $("#InputField").val().indexOf("%") > -1) {
         error();
         return;
     }
