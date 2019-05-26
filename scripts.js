@@ -71,6 +71,9 @@ function Convert() {
     if (base2 === "other")
         base2 = $("#OtherOutBaseField").val();
 
+    if (base1 > 36 || base1 < 2 || base2 > 36 || base2 < 2)
+        error();
+
     let Stroka = document.getElementById('InputField');
 
 
@@ -83,7 +86,15 @@ function Convert() {
 
 
     if ($("#NumRadioVariable").prop("checked"))
+    {
+        for (let i = 0; i <= word.length; i++)
+        {
+            if (parseInt(word.charAt(i)) >= base1) {
+            error();
+            return;
+        }   }
         word = $("#InputField").val();
+    }
     else
     {
         try {
@@ -96,12 +107,12 @@ function Convert() {
 
     }
 
-    for (let i = 0; i <= word.length; i++)
-        if (parseInt(word.charAt(i) >= base1))
-        {
-            error();
-            return;
-        }
+    // for (let i = 0; i <= word.length; i++)
+    //     if (parseInt(word.charAt(i) >= base1))
+    //     {
+    //         error();
+    //         return;
+    //     }
 
     let negative = false;
     if (parseInt(word)<0)
@@ -164,7 +175,7 @@ function convertBase(val) {
 function ConvertSys(dig,sFrom,sTo,hexUp,fix)
 {
     var results=new Array(new Array(),new Array());
-    if(!is_dig(dig,sFrom) || isNaN(sFrom) || isNaN(sTo) || sFrom<=1 || sTo<=1 || sFrom>34 || sTo>34) return false;
+    if(!is_dig(dig,sFrom) || isNaN(sFrom) || isNaN(sTo) || sFrom<=1 || sTo<=1 || sFrom>36 || sTo>36) return false;
     if(sTo==sFrom) return new Array(dig,results);
     hexUp=hexUp ? 0 : 32;
     var trunc = String("");
