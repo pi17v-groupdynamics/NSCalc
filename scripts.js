@@ -98,13 +98,19 @@ function Convert() {
     else
     {
         try {
-            word = eval($("#InputField").val());
+            word = eval($("#InputField").val()).toString();
         }
         catch (e) {
             error();
             return;
         }
 
+    }
+
+    let negative = false;
+    if (word.charAt(0)==="-")
+    {   word=word.slice(1);
+        negative = true;
     }
 
     // for (let i = 0; i <= word.length; i++)
@@ -114,15 +120,11 @@ function Convert() {
     //         return;
     //     }
 
-    let negative = false;
-    if (parseInt(word)<0)
-    {word=word*-1;
-    negative = true;
-    }
+
 
     if (negative === false)
         $("#ResultField").text(ConvertSys(word,base1,base2,0,false)[0]);
-    else $("#ResultField").text(ConvertSys(word,base1,base2,0,false)[0] * -1);
+    else $("#ResultField").text("-1" + ConvertSys(word,base1,base2,0,false)[0]);
 
 }
 
