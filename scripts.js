@@ -124,7 +124,7 @@ function Convert() {
 
     if (negative === false)
         $("#ResultField").text(ConvertSys(word,base1,base2,0,false)[0]);
-    else $("#ResultField").text("-1" + ConvertSys(word,base1,base2,0,false)[0]);
+    else $("#ResultField").text("-" + ConvertSys(word,base1,base2,0,false)[0]);
 
 }
 
