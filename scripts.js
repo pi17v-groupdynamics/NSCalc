@@ -118,6 +118,8 @@ function Convert() {
         $("#ResultField").text(ConvertSys(word,base1,base2,0,false)[0]);
     else $("#ResultField").text("-" + ConvertSys(word,base1,base2,0,false)[0]);
 
+    if ($("#ResultField").val("undefined") | $("#ResultField").val("-undefined"))
+        $("#ResultField").val("");
 }
 
 
