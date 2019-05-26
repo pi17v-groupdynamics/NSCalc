@@ -86,17 +86,18 @@ function Convert() {
         word = $("#InputField").val();
     else
     {
-        if (word.match(/[A-zА-я]/g).length > 0)
-        {
+        try {
+            word = eval($("#InputField").val());
+        }
+        catch (e) {
             error();
             return;
         }
-        word = eval($("#InputField").val());
 
     }
 
     for (let i = 0; i <= word.length; i++)
-        if (word.charAt(i) >= base1)
+        if (parseInt(word.charAt(i) >= base1))
         {
             error();
             return;
@@ -113,6 +114,8 @@ function Convert() {
     else $("#ResultField").text(ConvertSys(word,base1,base2,0,false)[0] * -1);
 
 }
+
+
 function is_dig(dig,base)
 {
 
@@ -156,12 +159,6 @@ function convertBase(val) {
     if (base2 === "other")
         base2 = $("#OtherOutBaseField").val();
 
-
-
-    // if (typeof(val) === "number")
-    //     $("#ResultField").text(parseFloat(String(val)).toString(base2));
-    // else
-    //     $("#ResultField").text(parseInt(val.toString(), base1).toString(base2));
 }
 
 function ConvertSys(dig,sFrom,sTo,hexUp,fix)
@@ -178,16 +175,7 @@ function ConvertSys(dig,sFrom,sTo,hexUp,fix)
         fix = fix<1 ? 16 : fix;
         trunc = String(String(dig).substr(prPos+1));
         var i=0;
-        //while(String(trunc[i])=="0") i++;
         trunc = String(trunc).substr(i);
-        //alert(trunc)
-        /*
-        //alert(trunc);
-        //return;
-        trunc = "."+String(ConvertSys(trunc,sFrom,sTo,hexUp,fix)[0]);
-
-        //alert(trunc);
-        */
         if(sFrom!=10)
         {
             var dec = 0;
